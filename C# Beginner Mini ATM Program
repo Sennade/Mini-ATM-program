@@ -1,0 +1,60 @@
+using System;
+class program
+{
+    public static void Main()
+    {
+        int balance = 25000;
+        int pin = 0;
+        Console.WriteLine("Insert the card");
+        Console.WriteLine("Enter Your 4 Digit Pin");
+
+        pin = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Welcome To ATM!"+"****************");
+        Console.WriteLine("Please Select service:");
+        Console.WriteLine("1 - Current Balance");
+        Console.WriteLine("2 - Deposit");
+        Console.WriteLine("3 - Withdraw");
+        Console.WriteLine("4 - Quit");
+        Console.WriteLine("*******************************");
+
+        string choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                Console.WriteLine("Your Balance :" + balance);
+                break;
+
+
+            case "2":
+                Console.WriteLine("Enter the amount you want to deposit :");
+                int deposit = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Current Balance:" + (balance + deposit));
+                break;
+
+            case "3":
+                Console.WriteLine("Enter the amount you want to withdraw : ");
+                int withdraw = Convert.ToInt32(Console.ReadLine());
+
+                if (withdraw > balance)
+                {
+                    Console.WriteLine("You can't withdraw this amount. Please enter a valid amount !");
+                }
+                else
+                {
+                    Console.WriteLine("Current Balance :" + (balance - withdraw));
+                }
+                break;
+
+            case "4":
+                Console.WriteLine("Quitting");
+                Console.Clear();
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Please Make A Choice!");
+                break;
+        }
+    }
+}
+//Console.ReadLine();
